@@ -15,7 +15,7 @@ const Navbar = () => {
       {/* Overlay */}
       {isMenuOpen && (
        <div
-       className="fixed top-0 left-0 h-screen w-screen bg-white opacity-100 z-50 flex items-center justify-center transition-opacity duration-[800ms]"
+       className="fixed top-0 left-0 h-screen w-screen bg-white opacity-100 z-[999999] flex items-center justify-center transition-opacity duration-[800ms]"
        onClick={toggleMenu}
      >
        <div className="bg-white p-4 opacity-100">
@@ -77,7 +77,7 @@ const Navbar = () => {
 
         {/* Navigation Links (visible on desktop) */}
         <div className="hidden md:block">
-          <ul className="flex flex-row items-center space-x-6 text-black text-sm font-[400] cursor-pointer">
+          <ul className="flex flex-row items-center space-x-6 text-black text-sm font-[600] cursor-pointer">
             <li className={location.pathname === '/' ? 'bg-[#111827] text-white px-2 py-1 rounded' : 'hover:bg-slate-600 hover:text-white px-2 py-1 rounded'}>HOME</li>
             <li className={location.pathname === '/about' ? 'bg-[#111827] text-white px-2 py-1 rounded' : 'hover:bg-slate-600 hover:text-white px-2 py-1 rounded'}>ABOUT</li>
             <li className={location.pathname === '/region' ? 'bg-[#111827] text-white px-2 py-1 rounded' : 'hover:bg-slate-600 hover:text-white px-2 py-1 rounded'}>SAVANNAH REGION</li>
