@@ -37,8 +37,13 @@ const AboutPage = () => {
   const [selectedParagraph, setSelectedParagraph] = useState(carouselData[0].paragraph);
 
   const handleCardChange = (nextSlide) => {
-    setSelectedParagraph(carouselData[nextSlide - 1].paragraph);
+    let newIndex = nextSlide % carouselData.length;
+    if (newIndex < 0) {
+      newIndex = carouselData.length - 1;
+    }
+    setSelectedParagraph(carouselData[newIndex].paragraph);
   };
+  
 
   return (
     <>
