@@ -8,7 +8,7 @@ const AboutPage = () => {
     {
       id: 1,
       image: "https://via.placeholder.com/600x300",
-      title: "Company History",
+      title: "Vision and mission",
       description: "Learn about our journey and milestones.",
       paragraph:
         "1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
@@ -17,7 +17,7 @@ const AboutPage = () => {
     {
       id: 2,
       image: "https://via.placeholder.com/600x300",
-      title: "Meet the Team",
+      title: "Company's History",
       description: "Discover the talented individuals behind our success.",
       paragraph:
         "2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
@@ -26,7 +26,7 @@ const AboutPage = () => {
     {
       id: 3,
       image: "https://via.placeholder.com/600x300",
-      title: "Our Values",
+      title: "Meet the team",
       description: "Explore the principles that guide our work.",
       paragraph:
         "3Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
@@ -34,16 +34,12 @@ const AboutPage = () => {
     },
   ];
 
-  const [selectedParagraph, setSelectedParagraph] = useState(carouselData[0].paragraph);
+  const [selectedParagraph, setSelectedParagraph] = useState(null);
 
-  const handleCardChange = (nextSlide) => {
-    let newIndex = nextSlide % carouselData.length;
-    if (newIndex < 0) {
-      newIndex = carouselData.length - 1;
-    }
-    setSelectedParagraph(carouselData[newIndex].paragraph);
+  const handleCardClick = (event, paragraph) => {
+    event.preventDefault();
+    setSelectedParagraph(paragraph);
   };
-  
 
   return (
     <>
@@ -73,11 +69,14 @@ const AboutPage = () => {
             infinite={true}
             customTransition="transform 500ms ease-in-out"
             customTransitionDuration={500}
-            afterChange={(nextSlide) => handleCardChange(nextSlide)}
           >
             {carouselData.map((item) => (
               <div key={item.id} className={`p-4 `}>
-                <a href={item.link} className="block" onClick={(event) => event.preventDefault()}>
+                <a
+                  href={item.link}
+                  className="block"
+                  onClick={(event) => handleCardClick(event, item.paragraph)}
+                >
                   <img src={item.image} alt={item.title} className="rounded-lg" />
                 </a>
                 <div className="mt-4">
@@ -90,9 +89,11 @@ const AboutPage = () => {
             ))}
           </Carousel>
         </div>
-        <div className="text-center">
-          <p className="text-lg">{selectedParagraph}</p>
-        </div>
+        {selectedParagraph && (
+          <div className="text-center">
+            <p className="text-lg">{selectedParagraph}</p>
+          </div>
+        )}
       </div>
     </>
   );
