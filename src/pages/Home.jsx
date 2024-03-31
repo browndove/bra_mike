@@ -9,7 +9,9 @@ import Navbar from '../components/Navbar';
 const Home = () => {
   return (
     <div>
+        <div className='top-0 fixed'>
       <Navbar />
+      </div>
       <section className="w-[100vw] mt-[3rem]  px-8 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto bg-white">
         <div className=''>
           <span className="block mb-4 text-sm md:text-sm text-indigo-500 font-medium">

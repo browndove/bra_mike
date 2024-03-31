@@ -1,19 +1,11 @@
-// CarouselCard.js
+// WobblingLine.js
 
-import React from "react";
+import React from 'react';
 
-const CarouselCard = ({ item, onClick }) => {
+const CarouselCard = () => {
   return (
-    <div className={`p-4 `}>
-      <a href={item.link} className="block" onClick={(event) => {event.preventDefault(); onClick();}}>
-        <img src={item.image} alt={item.title} className="rounded-lg" />
-      </a>
-      <div className="mt-4">
-        <a href={item.link} className="text-lg font-semibold hover:underline">
-          {item.title}
-        </a>
-        <p className="text-gray-600">{item.description}</p>
-      </div>
+    <div className="h-1 bg-blue-200 absolute top-1/2 left-0">
+      <div className="h-full w-1 bg-blue-600 rounded-full transform origin-left animate-wobble" />
     </div>
   );
 };

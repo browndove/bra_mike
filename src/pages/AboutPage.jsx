@@ -41,6 +41,11 @@ const AboutPage = () => {
     setSelectedParagraph(paragraph);
   };
 
+  // Reset paragraph when not needed
+  const resetParagraph = () => {
+    setSelectedParagraph(null);
+  };
+
   return (
     <>
       <Navbar />
@@ -50,8 +55,8 @@ const AboutPage = () => {
             responsive={{
               desktop: {
                 breakpoint: { max: 3000, min: 1024 },
-                items: 3,
-                slidesToSlide: 3,
+                items: 1,
+                slidesToSlide: 1,
               },
               tablet: {
                 breakpoint: { max: 1024, min: 464 },
@@ -71,7 +76,7 @@ const AboutPage = () => {
             customTransitionDuration={500}
           >
             {carouselData.map((item) => (
-              <div key={item.id} className={`p-4 `}>
+              <div key={item.id} className={`p-4 mx-auto`}>
                 <a
                   href={item.link}
                   className="block"
@@ -85,15 +90,13 @@ const AboutPage = () => {
                   </a>
                   <p className="text-gray-600">{item.description}</p>
                 </div>
+                <div className="text-center mt-[5%]">
+            <p className="text-lg">{item.paragraph}</p>
+          </div>
               </div>
             ))}
           </Carousel>
         </div>
-        {selectedParagraph && (
-          <div className="text-center">
-            <p className="text-lg">{selectedParagraph}</p>
-          </div>
-        )}
       </div>
     </>
   );
