@@ -63,23 +63,23 @@ const AboutPage = () => {
             customTransition="transform 500ms ease-in-out"
             customTransitionDuration={500}
           >
-            {carouselData.map((item) => (
-              <div key={item.id} className={`p-4 mx-auto`}>
-            <div className="flex flex-col items-center justify-center">
-                  <img src={item.image} alt={item.title} className="rounded-lg  " />
-                  
-                <div className="mt-4">
-                  <a href={item.link} className="text-lg  flex flex-col items-center justify-center font-semibold hover:underline">
-                    {item.title}
-                  </a>
-                  <p className="text-gray-600">{item.description}</p>
-                </div>
-                </div>
-                <div className="text-center mt-[5%]">
-                  <p className="text-lg">{item.paragraph}</p>
-                </div>
-              </div>
-            ))}
+           {carouselData.map((item) => (
+  <div key={item.id} className={`p-4 mx-auto`}>
+    <div className="flex flex-col items-center justify-center">
+      <img src={item.image} alt={item.title} className="rounded-lg" />
+      <div className="mt-4">
+        <a href={item.link} className="text-lg flex flex-col items-center justify-center font-semibold hover:underline">
+          {item.title}
+        </a>
+        <p className="text-gray-600">{item.description}</p>
+      </div>
+    </div>
+    <div className="text-center mt-[5%]">
+      <p className="text-lg text-center">{item.paragraph}</p>
+    </div>
+  </div>
+))}
+
           </Carousel>
         </div>
       </div>
