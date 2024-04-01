@@ -34,18 +34,6 @@ const AboutPage = () => {
     },
   ];
 
-  const [selectedParagraph, setSelectedParagraph] = useState(null);
-
-  const handleCardClick = (event, paragraph) => {
-    event.preventDefault();
-    setSelectedParagraph(paragraph);
-  };
-
-  // Reset paragraph when not needed
-  const resetParagraph = () => {
-    setSelectedParagraph(null);
-  };
-
   return (
     <>
       <Navbar />
@@ -77,22 +65,19 @@ const AboutPage = () => {
           >
             {carouselData.map((item) => (
               <div key={item.id} className={`p-4 mx-auto`}>
-                <a
-                  href={item.link}
-                  className="block"
-                  onClick={(event) => handleCardClick(event, item.paragraph)}
-                >
-                  <img src={item.image} alt={item.title} className="rounded-lg" />
-                </a>
+            <div className="flex flex-col items-center justify-center">
+                  <img src={item.image} alt={item.title} className="rounded-lg  " />
+                  
                 <div className="mt-4">
-                  <a href={item.link} className="text-lg font-semibold hover:underline">
+                  <a href={item.link} className="text-lg  flex flex-col items-center justify-center font-semibold hover:underline">
                     {item.title}
                   </a>
                   <p className="text-gray-600">{item.description}</p>
                 </div>
+                </div>
                 <div className="text-center mt-[5%]">
-            <p className="text-lg">{item.paragraph}</p>
-          </div>
+                  <p className="text-lg">{item.paragraph}</p>
+                </div>
               </div>
             ))}
           </Carousel>
