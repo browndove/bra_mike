@@ -6,9 +6,11 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  const toggleMenu = () => {
+  const toggleMenu = (e) => {
+    e.stopPropagation(); // Prevent event propagation
     setIsMenuOpen(!isMenuOpen);
   };
+  
 
   return (
     <div className="relative">

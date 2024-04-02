@@ -37,8 +37,8 @@ const AboutPage = () => {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto py-8">
-        <div className="mb-8">
+      <div className="container mx-auto pt-4">
+        <div className="">
           <Carousel
             responsive={{
               desktop: {
@@ -63,23 +63,31 @@ const AboutPage = () => {
             customTransition="transform 500ms ease-in-out"
             customTransitionDuration={500}
           >
-           {carouselData.map((item) => (
-  <div key={item.id} className={`p-4 mx-auto`}>
-    <div className="flex flex-col items-center justify-center">
-      <img src={item.image} alt={item.title} className="rounded-lg" />
-      <div className="mt-4">
-        <a href={item.link} className="text-lg flex flex-col items-center justify-center font-semibold hover:underline">
-          {item.title}
-        </a>
-        <p className="text-gray-600">{item.description}</p>
-      </div>
-    </div>
-    <div className="text-center mt-[5%]">
-      <p className="text-lg text-center">{item.paragraph}</p>
-    </div>
-  </div>
-))}
-
+            {carouselData.map((item) => (
+              <div key={item.id} className="p-4 mx-auto flex flex-col lg:flex-row items-center">
+                <div>
+                  <div className="flex flex-col justify-center items-center">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="rounded-lg lg:h-[60vh]"
+                    />
+                    <div className="mt-4 text-center">
+                      <a
+                        href={item.link}
+                        className="text-lg font-semibold hover:underline"
+                      >
+                        {item.title}
+                      </a>
+                      <p className="text-gray-600">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-4 text-left  sm:ml-4  flex-wrap">
+                  <p className="text-lg mx-12 ">{item.paragraph}</p>
+                </div>
+              </div>
+            ))}
           </Carousel>
         </div>
       </div>
